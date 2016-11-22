@@ -1,0 +1,37 @@
+PODS:
+  - Router (1.0.0)
+  - SideMenu (2.0.0)
+  - Turbolinks (1.0.2)
+  - UMengAnalytics-NO-IDFA (4.1.1)
+
+DEPENDENCIES:
+  - Router
+  - SideMenu (from `https://github.com/jonkykong/SideMenu.git`, branch `swift3`)
+  - Turbolinks (from `https://github.com/turbolinks/turbolinks-ios.git`, branch `swift-3.0`)
+  - UMengAnalytics-NO-IDFA
+
+EXTERNAL SOURCES:
+  SideMenu:
+    :branch: swift3
+    :git: https://github.com/jonkykong/SideMenu.git
+  Turbolinks:
+    :branch: swift-3.0
+    :git: https://github.com/turbolinks/turbolinks-ios.git
+
+CHECKOUT OPTIONS:
+  SideMenu:
+    :commit: 2f948475be9bc620bdbc465e844b2b704072e3ea
+    :git: https://github.com/jonkykong/SideMenu.git
+  Turbolinks:
+    :commit: e24228dd447375a23f817d6c413ad4d3067fc95e
+    :git: https://github.com/turbolinks/turbolinks-ios.git
+
+SPEC CHECKSUMS:
+  Router: 6088d6d321e097070d5ea4bd792cb015dfa0fbb4
+  SideMenu: 711f7f8d3a7656fcdb4048200a173a23a3c6e70b
+  Turbolinks: d8209bab43803adae8c06d434368e16479023407
+  UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
+
+PODFILE CHECKSUM: 56be3b46866c4a188b84a30cd77318acf1666195
+
+COCOAPODS: 1.0.1
