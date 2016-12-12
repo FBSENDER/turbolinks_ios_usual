@@ -1,10 +1,12 @@
 PODS:
+  - PKHUD (4.0.0)
   - Router (1.0.0)
   - SideMenu (2.0.0)
   - Turbolinks (1.0.2)
   - UMengAnalytics-NO-IDFA (4.1.1)
 
 DEPENDENCIES:
+  - PKHUD (~> 4.0)
   - Router
   - SideMenu (from `https://github.com/jonkykong/SideMenu.git`, branch `swift3`)
   - Turbolinks (from `https://github.com/turbolinks/turbolinks-ios.git`, branch `swift-3.0`)
@@ -27,11 +29,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/turbolinks/turbolinks-ios.git
 
 SPEC CHECKSUMS:
+  PKHUD: 2bb45c936bb8afa39f3cd33ec14e8cc89f624255
   Router: 6088d6d321e097070d5ea4bd792cb015dfa0fbb4
   SideMenu: 711f7f8d3a7656fcdb4048200a173a23a3c6e70b
   Turbolinks: d8209bab43803adae8c06d434368e16479023407
   UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
 
-PODFILE CHECKSUM: 56be3b46866c4a188b84a30cd77318acf1666195
+PODFILE CHECKSUM: 3253536b6fab627651625f9a957503fe2edfd9ba
 
 COCOAPODS: 1.0.1

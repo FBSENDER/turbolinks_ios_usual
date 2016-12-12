@@ -23,6 +23,7 @@
 		30D158571DE488B200EE5827 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D158561DE488B200EE5827 /* WebViewController.swift */; };
 		30D158591DE488E700EE5827 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D158581DE488E700EE5827 /* TagViewController.swift */; };
 		30D1585B1DE48EE900EE5827 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30D1585A1DE48EE900EE5827 /* Images.xcassets */; };
+		30D6986A1DFEABE100B63B4C /* RBHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D698691DFEABE100B63B4C /* RBHUD.swift */; };
 		4435FC51DBC9D23B0E0648A2 /* Pods_TurbolinksUsual.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9077CD96ABC701FBD7ECB5 /* Pods_TurbolinksUsual.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		30D158561DE488B200EE5827 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		30D158581DE488E700EE5827 /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		30D1585A1DE48EE900EE5827 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		30D698691DFEABE100B63B4C /* RBHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBHUD.swift; sourceTree = "<group>"; };
 		AA9077CD96ABC701FBD7ECB5 /* Pods_TurbolinksUsual.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TurbolinksUsual.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9258390102A54B036966A12 /* Pods-TurbolinksUsual.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurbolinksUsual.release.xcconfig"; path = "Pods/Target Support Files/Pods-TurbolinksUsual/Pods-TurbolinksUsual.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 			children = (
 				30D1584A1DE4848C00EE5827 /* Error.swift */,
 				30D1584C1DE484D200EE5827 /* ErrorView.swift */,
+				30D698691DFEABE100B63B4C /* RBHUD.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				30D158591DE488E700EE5827 /* TagViewController.swift in Sources */,
 				30D158421DE4830200EE5827 /* Constants.swift in Sources */,
 				30D158531DE487D400EE5827 /* SideMenuNavigationController.swift in Sources */,
+				30D6986A1DFEABE100B63B4C /* RBHUD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

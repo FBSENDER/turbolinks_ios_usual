@@ -186,6 +186,14 @@ extension TurbolinksSessionLib: WKScriptMessageHandler {
         }
         guard let dic = message.body as? [String: AnyObject] else {
             return
+        }        
+        // window.webkit.messageHandlers.NativeApp.postMessage({func: "alert_success", message: "成功"})
+        if let funcName = dic["func"] as? String, let message = dic["message"] as? String {
+            if funcName == "alert_success" {
+                RBHUD.success(message: message)
+            } else {
+                RBHUD.error(message: message)
+            }
         }
     }
 }
@@ -197,5 +205,33 @@ extension TurbolinksSessionLib: WKUIDelegate {
     // 注意，使用了`WKWebView`后，在JS端调用alert()就不会在HTML
     // 中显示弹出窗口。因此，我们需要在此处手动弹出ios系统的alert。
     
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
+            completionHandler()
+        }))
+        topNavigationController?.present(alert, animated: true, completion: nil)
+    }
     
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alert = UIAlertController(title: "App Title", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
+            completionHandler(true)
+        }))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+            completionHandler(false)
+        }))
+        topNavigationController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alert = UIAlertController(title: prompt, message: defaultText, preferredStyle: .alert)
+        alert.addTextField { (textField: UITextField) -> Void in
+            textField.textColor = UIColor.red
+        }
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
+            completionHandler(alert.textFields![0].text!)
+        }))
+        topNavigationController?.present(alert, animated: true, completion: nil)
+    }
 }

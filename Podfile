@@ -4,4 +4,5 @@ target 'TurbolinksUsual' do
   pod 'SideMenu', :git => 'https://github.com/jonkykong/SideMenu.git', :branch => 'swift3'
   pod 'Router'
   pod 'UMengAnalytics-NO-IDFA'
+  pod 'PKHUD', '~> 4.0'
 end

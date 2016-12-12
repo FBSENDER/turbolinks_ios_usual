@@ -89,6 +89,10 @@ class WebViewController: VisitableViewController {
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         sheet.addAction(cancelAction)
+        
+        sheet.popoverPresentationController?.sourceView = self.view
+        sheet.popoverPresentationController?.sourceRect = CGRect(origin: CGPoint(x: 0, y: self.view.bounds.size.height / 2), size: CGSize(width: self.view.bounds.size.width,height: self.view.bounds.size.height / 2 - 10))
+        
         self.present(sheet, animated: true, completion: nil)
     }
     
@@ -118,6 +122,8 @@ class WebViewController: VisitableViewController {
     fileprivate func share(_ textToShare: String, url: URL) {
         let objectsToShare = [textToShare, url] as [Any]
         let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(origin: CGPoint(x: 1, y: 1), size: CGSize(width: self.view.bounds.size.width,height: self.view.bounds.size.height / 2 - 10))
         self.present(activityViewController, animated: true, completion: nil)
     }
 }
