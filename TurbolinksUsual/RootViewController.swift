@@ -3,11 +3,9 @@
 
 import UIKit
 import SideMenu
+import SwiftyJSON
 
 class RootViewController: UITabBarController {
-    fileprivate let articleTag = 0
-    fileprivate let productTag = 1
-    fileprivate let saleTag = 2
     
     fileprivate func setupSideMenu() {
         SideMenuManager.menuLeftNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sideMenuController") as? UISideMenuNavigationController
@@ -20,12 +18,13 @@ class RootViewController: UITabBarController {
     
     //在这里设置 标签页 对应的 webviewcontroller
     fileprivate func setupViewControllers() {
-        let tagController1 = TagViewController(path: "")
-        tagController1.tabBarItem = UITabBarItem(title: "Title", image: UIImage(named: "favorites"), tag: productTag)
-        let tagController2 = TagViewController(path: "")
-        tagController1.tabBarItem = UITabBarItem(title: "Title", image: UIImage(named: "topic"), tag: productTag)
-        
-        viewControllers = [tagController1, tagController2]
+        var tagViews: [UIViewController] = []
+        for tag_view in MyVariables.tag_views{
+            let tagController = TagViewController(path: tag_view["path"].stringValue, headers: tag_view)
+            tagController.tabBarItem = UITabBarItem(title: tag_view["title"].stringValue, image: UIImage(named: tag_view["image_name"].stringValue), tag: tag_view["tag"].intValue)
+            tagViews.append(tagController)
+        }
+        viewControllers = tagViews
     }
     
     fileprivate func createSideMenuBarButton(_ image: UIImage?) -> UIBarButtonItem {

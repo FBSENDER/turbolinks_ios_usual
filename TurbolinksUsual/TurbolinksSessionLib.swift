@@ -65,7 +65,7 @@ class TurbolinksSessionLib: NSObject {
         }
         
         if (action == .Restore) {
-            let urlString = ROOT_URL + path
+            let urlString = MyVariables.root_url + path
             topWebViewController.visitableURL = URL(string: urlString)!
             session.reload()
         } else {
@@ -164,7 +164,7 @@ extension TurbolinksSessionLib: WKNavigationDelegate {
         }
         
         if let url = navigationAction.request.url {
-            if let host = url.host , host != URL(string: ROOT_URL)!.host! {
+            if let host = url.host , host != URL(string: MyVariables.root_url)!.host! {
                 // 外部网站, open in SafariView
                 safariOpen(url)
             } else if let path = url.path ?? nil {
@@ -189,7 +189,10 @@ extension TurbolinksSessionLib: WKScriptMessageHandler {
         }        
         // window.webkit.messageHandlers.NativeApp.postMessage({func: "alert_success", message: "成功"})
         if let funcName = dic["func"] as? String, let message = dic["message"] as? String {
-            if funcName == "alert_success" {
+            if funcName == "jump_pinglun"{
+                UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")! as URL)
+            }
+            else if funcName == "alert_success" {
                 RBHUD.success(message: message)
             } else {
                 RBHUD.error(message: message)
@@ -214,7 +217,7 @@ extension TurbolinksSessionLib: WKUIDelegate {
     }
     
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        let alert = UIAlertController(title: "App Title", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "\(APP_TITLE)", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
             completionHandler(true)
         }))

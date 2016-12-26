@@ -1,10 +1,22 @@
 import UIKit
+import SwiftyJSON
 
-let ROOT_URL = "http://yourwebsite"
 let APP_TITLE = ""
 let APP_ID = ""
+let APP_VERSION = ""
 let UM_APP_KEY = ""
 let UM_CHANNEL_ID = ""
+let USER_AGENT = "turbolinks-app, something like yourwebsite, version=" + APP_VERSION
+let CONFIG_JSON = "{\"tag_view_controllers\":[{\"title\":\"hah\",\"image_name\":\"topic\",\"path\":\"/app/card_ssr\",\"tag\":0,\"header_items\":[\"1\",\"2\"],\"header_paths\":[\"/app/card_r\",\"/app/card_sr\"],\"add_search_button\":true,\"search_path\":\"/app/hot\"},{\"title\":\"hah\",\"image_name\":\"topic\",\"path\":\"/app/card_ssr\",\"tag\":1,\"header_items\":[\"1\",\"2\"],\"header_paths\":[\"/app/card_r\",\"/app/card_sr\"],\"add_search_button\":true,\"search_path\":\"/app/hot\"}],\"routes\":[{\"title\":\"SR\",\"path\":\"/app/card_sr\",\"add_share_button\":true}]}"
+
+
+struct MyVariables{
+    static var root_url = "http://www.yysssr.com:3000"
+    static var config_root_url = "http://www.yysssr.com:3000/app/config_info"
+    static var fb_config_key = "\(APP_ID)_\(APP_VERSION)_fbconfig"
+    static var tag_views: [SwiftyJSON.JSON] = []
+    static var routes: [SwiftyJSON.JSON] = []
+}
 
 
 // Red Theme
@@ -18,4 +30,6 @@ let NAVBAR_TINT_COLOR = UIColor(red: 1.00, green: 1.00, blue: 0.98, alpha: 1.0)
 let SEGMENT_BG_COLOR = UIColor(red: 0.23, green: 0.05, blue: 0.02, alpha: 1.0)
 let TABBAR_BG_COLOR = UIColor(red: 0.96, green: 0.94, blue: 0.94, alpha: 1.0)
 
-let USER_AGENT = "turbolinks-app, something like yourwebsite"
+
+
+

@@ -19,7 +19,7 @@ class WebViewController: VisitableViewController {
     }
     
     fileprivate func urlWithPath(_ path: String) -> URL {
-        let urlString = ROOT_URL + path
+        let urlString = MyVariables.root_url + path
         
         return URL(string: urlString)!
     }
@@ -27,12 +27,14 @@ class WebViewController: VisitableViewController {
     //自定义 path 与 对应的页面 title，以及是否增加顶部右侧按钮
     fileprivate func initRouter() {
         self.navigationItem.rightBarButtonItem = nil
-        router.bind("some path") { (req) in
-            self.pageTitle = "热门标签"
-            self.addPopupMenuButton()
-        }
-        router.bind("some path") { (req) in
-            self.pageTitle = "sssss"
+        for route in MyVariables.routes {
+            router.bind(route["path"].stringValue){
+                (req) in
+                self.pageTitle = route["title"].stringValue
+                if(route["add_share_button"].boolValue){
+                    self.addPopupMenuButton()
+                }
+            }
         }
     }
     

@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3047E1061E0B785F00AA77F9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3047E1051E0B785F00AA77F9 /* Launch Screen.storyboard */; };
 		3095B3421DE47F740035239A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095B3411DE47F740035239A /* AppDelegate.swift */; };
-		3095B3441DE47F740035239A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3095B3431DE47F740035239A /* ViewController.swift */; };
 		3095B3471DE47F740035239A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3095B3451DE47F740035239A /* Main.storyboard */; };
 		3095B3491DE47F740035239A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3095B3481DE47F740035239A /* Assets.xcassets */; };
-		3095B34C1DE47F740035239A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3095B34A1DE47F740035239A /* LaunchScreen.storyboard */; };
 		30D158421DE4830200EE5827 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D158411DE4830200EE5827 /* Constants.swift */; };
 		30D158491DE4843200EE5827 /* TurbolinksSessionLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D158481DE4843200EE5827 /* TurbolinksSessionLib.swift */; };
 		30D1584B1DE4848C00EE5827 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D1584A1DE4848C00EE5827 /* Error.swift */; };
@@ -29,12 +28,11 @@
 
 /* Begin PBXFileReference section */
 		0B7CC9815E3127B9C0CAD55A /* Pods-TurbolinksUsual.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurbolinksUsual.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TurbolinksUsual/Pods-TurbolinksUsual.debug.xcconfig"; sourceTree = "<group>"; };
+		3047E1051E0B785F00AA77F9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3095B33E1DE47F740035239A /* TurbolinksUsual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurbolinksUsual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3095B3411DE47F740035239A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3095B3431DE47F740035239A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3095B3461DE47F740035239A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3095B3481DE47F740035239A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3095B34B1DE47F740035239A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3095B34D1DE47F740035239A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30D158411DE4830200EE5827 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		30D158451DE483D300EE5827 /* TurbolinksUsual-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TurbolinksUsual-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 		30D158401DE482E800EE5827 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3095B3431DE47F740035239A /* ViewController.swift */,
 				30D158501DE4861200EE5827 /* SideMenuViewController.swift */,
 				30D158521DE487D400EE5827 /* SideMenuNavigationController.swift */,
 				30D158541DE4885D00EE5827 /* RootViewController.swift */,
@@ -150,9 +147,9 @@
 		30D158441DE4836A00EE5827 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3047E1051E0B785F00AA77F9 /* Launch Screen.storyboard */,
 				30D1584E1DE4854E00EE5827 /* ErrorView.xib */,
 				3095B3451DE47F740035239A /* Main.storyboard */,
-				3095B34A1DE47F740035239A /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -230,10 +227,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3095B34C1DE47F740035239A /* LaunchScreen.storyboard in Resources */,
 				30D1585B1DE48EE900EE5827 /* Images.xcassets in Resources */,
 				3095B3491DE47F740035239A /* Assets.xcassets in Resources */,
 				3095B3471DE47F740035239A /* Main.storyboard in Resources */,
+				3047E1061E0B785F00AA77F9 /* Launch Screen.storyboard in Resources */,
 				30D1584F1DE4854E00EE5827 /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +290,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3095B3441DE47F740035239A /* ViewController.swift in Sources */,
 				30D1584D1DE484D200EE5827 /* ErrorView.swift in Sources */,
 				30D158551DE4885D00EE5827 /* RootViewController.swift in Sources */,
 				30D158571DE488B200EE5827 /* WebViewController.swift in Sources */,
@@ -317,14 +313,6 @@
 				3095B3461DE47F740035239A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3095B34A1DE47F740035239A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3095B34B1DE47F740035239A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -426,16 +414,17 @@
 			baseConfigurationReference = 0B7CC9815E3127B9C0CAD55A /* Pods-TurbolinksUsual.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 52P3WR47LR;
 				INFOPLIST_FILE = TurbolinksUsual/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fbsender.TurbolinksUsual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TurbolinksUsual/TurbolinksUsual-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -444,15 +433,16 @@
 			baseConfigurationReference = B9258390102A54B036966A12 /* Pods-TurbolinksUsual.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 52P3WR47LR;
 				INFOPLIST_FILE = TurbolinksUsual/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fbsender.TurbolinksUsual;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TurbolinksUsual/TurbolinksUsual-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

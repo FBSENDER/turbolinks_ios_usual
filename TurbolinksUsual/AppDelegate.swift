@@ -2,6 +2,8 @@ import UIKit
 import WebKit
 import Turbolinks
 import SideMenu
+import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,15 +22,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: PRIMARY_COLOR], for: .selected)
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        initAppearance()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        navigationController.view.backgroundColor = UIColor.white
-        window?.rootViewController = navigationController
+    //友盟统计启动
+    fileprivate func umengStart(){
         UMAnalyticsConfig.sharedInstance().appKey = UM_APP_KEY
         UMAnalyticsConfig.sharedInstance().channelId = UM_CHANNEL_ID
         MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
+    }
+    
+    //加载app设置
+    fileprivate func fbConfigLoad(){
+        Alamofire.request("\(MyVariables.config_root_url)?app_id=\(APP_ID)&app_version=\(APP_VERSION)").responseString{ response in
+            
+            UserDefaults.standard.set(response.result.value, forKey: MyVariables.fb_config_key)
+            UserDefaults.standard.synchronize()
+        }
+        
+        let default_config = JSON(data: CONFIG_JSON.data(using: .utf8,allowLossyConversion: false)!)
+        
+        set_my_variables(json: default_config)
+        
+        if let online_config_sting = UserDefaults.standard.string(forKey: MyVariables.fb_config_key){
+            let online_config_data = online_config_sting.data(using: .utf8, allowLossyConversion: false)
+            let online_config = JSON(data: online_config_data!)
+            set_my_variables(json: online_config)
+        }
+            
+    }
+    
+    fileprivate func set_my_variables(json: SwiftyJSON.JSON?){
+        if let tag_views = json?["tag_view_controllers"], tag_views.arrayValue.count > 0{
+            MyVariables.tag_views = tag_views.arrayValue
+            print(tag_views.arrayValue)
+        }
+        if let routes = json?["routes"], routes.arrayValue.count > 0{
+            MyVariables.routes = routes.arrayValue
+        }
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        initAppearance()
+    
+        fbConfigLoad()
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController.view.backgroundColor = UIColor.white
+        window?.rootViewController = navigationController
+        
+        umengStart()
         
         return true
     }

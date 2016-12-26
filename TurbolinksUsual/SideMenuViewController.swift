@@ -83,7 +83,7 @@ class SideMenuViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             if indexPath.row == 0 {
-                UIApplication.shared.openURL(NSURL(string: ROOT_URL)! as URL)
+                UIApplication.shared.openURL(NSURL(string: MyVariables.root_url)! as URL)
             } else {
                 UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")! as URL)
             }
