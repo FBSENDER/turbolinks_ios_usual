@@ -48,7 +48,7 @@ class TagViewController: WebViewController {
     }
     
     func myClickAction() {
-        TurbolinksSessionLib.sharedInstance.actionToPath(self.search_path, withAction: .Replace)
+        TurbolinksSessionLib.sharedInstance.actionToPath(self.search_path, withAction: .Advance)
     }
     
     private func addObserver() {
