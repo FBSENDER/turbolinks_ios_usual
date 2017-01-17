@@ -42,7 +42,7 @@ class TagViewController: WebViewController {
     
     
     
-    func filterChangedAction(sender: UISegmentedControl) {
+    func filterChangedAction(_ sender: UISegmentedControl) {
         let path = self.header_paths[sender.selectedSegmentIndex]
         TurbolinksSessionLib.sharedInstance.actionToPath(path, withAction: .Restore)
     }

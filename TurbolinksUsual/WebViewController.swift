@@ -4,11 +4,21 @@
 import UIKit
 import Turbolinks
 import Router
+import GoogleMobileAds
 
-class WebViewController: VisitableViewController {
+class WebViewController: VisitableViewController, GADBannerViewDelegate {
     fileprivate(set) var currentPath = ""
     fileprivate lazy var router = Router()
     fileprivate var pageTitle = ""
+    
+    lazy var bannerView: GADBannerView! = {
+        let origin = CGPoint.init(x: (UIScreen.main.bounds.size.width - 320)/2, y: UIScreen.main.bounds.size.height - (64 + 50));
+        let view = GADBannerView.init(adSize: kGADAdSizeBanner, origin: origin);
+        view.delegate = self
+        return view;
+    }()
+    
+    fileprivate var adCloseButton = UIButton()
     
     convenience init(path: String) {
         self.init()
@@ -33,6 +43,9 @@ class WebViewController: VisitableViewController {
                 self.pageTitle = route["title"].stringValue
                 if(route["add_share_button"].boolValue){
                     self.addPopupMenuButton()
+                }
+                if(route["show_google_ad"].boolValue){
+                    self.loadGoogleAd()
                 }
             }
         }
@@ -128,4 +141,32 @@ class WebViewController: VisitableViewController {
         activityViewController.popoverPresentationController?.sourceRect = CGRect(origin: CGPoint(x: 1, y: 1), size: CGSize(width: self.view.bounds.size.width,height: self.view.bounds.size.height / 2 - 10))
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
+    fileprivate func addAdCloseButton(){
+        adCloseButton.frame = CGRect(x: self.view.center.x + 150,y: self.view.frame.size.height - 64,width: 15,height: 15)
+        adCloseButton.setBackgroundImage(UIImage(named: "close"), for: UIControlState.normal)
+        adCloseButton.addTarget(self, action: #selector(hideAd), for: .touchUpInside)
+        self.view.addSubview(adCloseButton)
+    }
+    
+    func hideAd(button: UIButton){
+        self.adCloseButton.removeFromSuperview()
+        self.bannerView.removeFromSuperview()
+    }
+    
+    fileprivate func loadGoogleAd(){
+        bannerView.adUnitID = AD_UNIT_ID
+        bannerView.rootViewController = self
+        bannerView.isAutoloadEnabled = true;
+        view.addSubview(bannerView)
+        
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        self.addAdCloseButton()
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+    }
+
 }

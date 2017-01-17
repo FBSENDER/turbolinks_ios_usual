@@ -7,4 +7,6 @@ target 'TurbolinksUsual' do
   pod 'PKHUD', '~> 4.0'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
 end

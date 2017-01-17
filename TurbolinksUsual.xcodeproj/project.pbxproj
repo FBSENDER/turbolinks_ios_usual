@@ -199,7 +199,7 @@
 					3095B33D1DE47F740035239A = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 52P3WR47LR;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};

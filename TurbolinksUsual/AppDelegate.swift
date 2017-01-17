@@ -39,17 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let default_config = JSON(data: CONFIG_JSON.data(using: .utf8,allowLossyConversion: false)!)
         
-        set_my_variables(json: default_config)
+        set_my_variables(default_config)
         
         if let online_config_sting = UserDefaults.standard.string(forKey: MyVariables.fb_config_key){
             let online_config_data = online_config_sting.data(using: .utf8, allowLossyConversion: false)
             let online_config = JSON(data: online_config_data!)
-            set_my_variables(json: online_config)
+            set_my_variables(online_config)
         }
             
     }
     
-    fileprivate func set_my_variables(json: SwiftyJSON.JSON?){
+    fileprivate func set_my_variables(_ json: SwiftyJSON.JSON?){
         if let tag_views = json?["tag_view_controllers"], tag_views.arrayValue.count > 0{
             MyVariables.tag_views = tag_views.arrayValue
             print(tag_views.arrayValue)

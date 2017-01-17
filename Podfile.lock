@@ -1,5 +1,28 @@
 PODS:
   - Alamofire (4.2.0)
+  - Firebase/AdMob (3.11.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.16.0)
+  - Firebase/Core (3.11.0):
+    - FirebaseAnalytics (= 3.6.0)
+    - FirebaseCore (= 3.4.6)
+  - FirebaseAnalytics (3.6.0):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.4.6):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.8)
+  - Google-Mobile-Ads-SDK (7.16.0)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
   - PKHUD (4.0.0)
   - Router (1.0.0)
   - SideMenu (2.0.7)
@@ -9,6 +32,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/AdMob
+  - Firebase/Core
   - PKHUD (~> 4.0)
   - Router
   - SideMenu
@@ -28,6 +53,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
+  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
+  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   PKHUD: 2bb45c936bb8afa39f3cd33ec14e8cc89f624255
   Router: 6088d6d321e097070d5ea4bd792cb015dfa0fbb4
   SideMenu: c5d3c3bc855b96bc2059e0b1ec346ecb54e80447
@@ -35,6 +68,6 @@ SPEC CHECKSUMS:
   Turbolinks: d8209bab43803adae8c06d434368e16479023407
   UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
 
-PODFILE CHECKSUM: 4c27f72b61e2b31eeafd4e2748aa92762558b806
+PODFILE CHECKSUM: 382d5fb76f1ec8d7d49bb80e83db9046d913273b
 
 COCOAPODS: 1.0.1

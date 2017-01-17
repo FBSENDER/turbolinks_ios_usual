@@ -190,12 +190,12 @@ extension TurbolinksSessionLib: WKScriptMessageHandler {
         // window.webkit.messageHandlers.NativeApp.postMessage({func: "alert_success", message: "成功"})
         if let funcName = dic["func"] as? String, let message = dic["message"] as? String {
             if funcName == "jump_pinglun"{
-                UIApplication.shared.openURL(NSURL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")! as URL)
+                UIApplication.shared.openURL(URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")! as URL)
             }
             else if funcName == "alert_success" {
-                RBHUD.success(message: message)
+                RBHUD.success(message)
             } else {
-                RBHUD.error(message: message)
+                RBHUD.error(message)
             }
         }
     }
