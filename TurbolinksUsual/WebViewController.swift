@@ -81,6 +81,68 @@ class WebViewController: VisitableViewController, GADBannerViewDelegate {
         navigationController?.topViewController?.title = pageTitle
     }
     
+    func addCollectButton(sheet: UIAlertController, article_id: String){
+        let collectAction = UIAlertAction(title: "收藏", style: .default, handler: { action in
+            var collect_ids = UserDefaults.standard.array(forKey: MyVariables.collect_key)
+            if(collect_ids == nil){
+                collect_ids = []
+            }
+            for id in collect_ids! {
+                if((id as! String) == article_id){
+                    return
+                }
+            }
+            collect_ids?.append(article_id)
+            UserDefaults.standard.set(collect_ids, forKey: MyVariables.collect_key)
+            UserDefaults.standard.synchronize()
+        })
+        sheet.addAction(collectAction)
+    }
+    
+    func addCancelCollectButton(sheet: UIAlertController){
+        if(self.currentPath.contains("/app/article/")){
+            let splitPaths = self.currentPath.components(separatedBy: "/")
+            let article_id = splitPaths[3]
+            
+            var do_add = false
+            
+            var collect_ids = UserDefaults.standard.array(forKey: MyVariables.collect_key)
+            if(collect_ids == nil){
+                do_add = false
+            }else{
+                for id in collect_ids! {
+                    if((id as! String) == article_id){
+                        do_add = true
+                        break
+                    }
+                }
+            }
+            if(!do_add){
+                addCollectButton(sheet: sheet, article_id: article_id)
+                return
+            }
+            
+            let cancelCollectAction = UIAlertAction(title: "取消收藏", style: .default, handler: { action in
+                var collect_ids = UserDefaults.standard.array(forKey: MyVariables.collect_key)
+                if(collect_ids == nil){
+                    collect_ids = []
+                }
+                var new_ids = [String]()
+                for id in collect_ids! {
+                    if((id as! String) != article_id){
+                        new_ids.append(id as! String)
+                    }
+                }
+                UserDefaults.standard.set(new_ids, forKey: MyVariables.collect_key)
+                UserDefaults.standard.synchronize()
+                
+            })
+            sheet.addAction(cancelCollectAction)
+        }
+        
+    }
+
+    
     func showTopicContextMenu() {
         guard let webView = self.visitableView.webView, let title = webView.title, let url = webView.url else {
             return
@@ -95,12 +157,15 @@ class WebViewController: VisitableViewController, GADBannerViewDelegate {
         })
         sheet.addAction(shareAction)
         
+        // 收藏button
+        addCancelCollectButton(sheet: sheet)
+        
         // ugc app 官方需要一个用户举报功能...
-        let jubaoAction = UIAlertAction(title: "举报", style: .default, handler: { action in
-            TurbolinksSessionLib.sharedInstance.actionToPath("path for 举报", withAction: .Restore)
+        //let jubaoAction = UIAlertAction(title: "举报", style: .default, handler: { action in
+        //    TurbolinksSessionLib.sharedInstance.actionToPath("path for 举报", withAction: .Restore)
             
-        })
-        sheet.addAction(jubaoAction)
+        //})
+        //sheet.addAction(jubaoAction)
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         sheet.addAction(cancelAction)

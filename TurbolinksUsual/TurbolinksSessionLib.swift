@@ -11,6 +11,7 @@ import Turbolinks
 import WebKit
 import Router
 import SafariServices
+import GoogleMobileAds
 
 class TurbolinksSessionLib: NSObject {
     static let sharedInstance: TurbolinksSessionLib = {
@@ -30,6 +31,18 @@ class TurbolinksSessionLib: NSObject {
         let router = Router()
         return router
     }()
+    
+    fileprivate var interstitial: GADInterstitial = {
+        let ad = GADInterstitial(adUnitID: AD_CHA_ID)
+        ad.load(GADRequest())
+        return ad
+    }()
+    
+    fileprivate func createAndLoadInterstitial() -> GADInterstitial {
+        let ad = GADInterstitial(adUnitID: AD_CHA_ID)
+        ad.load(GADRequest())
+        return ad
+    }
     
     fileprivate var application: UIApplication {
         return UIApplication.shared
@@ -83,6 +96,18 @@ class TurbolinksSessionLib: NSObject {
     }
     
     func actionToPath(_ path: String, withAction action: Action) {
+        
+        if(path.contains("/app/ad_google")){
+            if (interstitial.isReady){
+                interstitial.present(fromRootViewController: self.topNavigationController!)
+                interstitial = createAndLoadInterstitial()
+            }
+            return
+        }
+        if(!(interstitial.isReady)){
+            interstitial = createAndLoadInterstitial()
+        }
+        
         let matched = router.match(URL(string: path)! as URL)
         var realAction = action
         
